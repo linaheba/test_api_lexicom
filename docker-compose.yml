@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  test_api:
+    container_name: test-api
+    build:
+      dockerfile: Dockerfile
+      context: .
+    volumes:
+      - .:/app
+    env_file:
+      .env
+    restart: always
+    stop_signal: SIGTERM
+    ports:
+      - "8000:8000"
+
+
+  redis:
+        image: redis
+        restart: always
+        container_name: redis
+        volumes:
+          - /volumes/redis/data:/data
+        ports:
+          - "6379:6379"
+
