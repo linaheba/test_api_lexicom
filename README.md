@@ -43,7 +43,7 @@ WHERE short_names.name = SPLIT_PART(full_names.name, '.', 1);
 UPDATE full_names
 SET status = short_names.status
 FROM short_names
-WHERE full_names.name LIKE CONCAT(short_names.name, '%');
+WHERE full_names.name LIKE CONCAT(short_names.name, '.%');
 ```
 
 Здесь мы обновляем поле status, сравнивая имена из двух таблиц и используя для этого оператор like (но перед этим создаём индексы).
