@@ -1,3 +1,4 @@
+# Файл инициализации апи
 import dotenv
 import os
 
@@ -13,8 +14,8 @@ dotenv.load_dotenv()
 
 app = FastAPI(
     debug=True,
-    title='a',
-    version='1',
+    title=os.getenv('TITLE'),
+    version=os.getenv('VERSION'),
 )
 
 
